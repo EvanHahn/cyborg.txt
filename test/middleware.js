@@ -36,14 +36,8 @@ describe('Connect-compatible middleware', function() {
 
 		request(app).get('/robots.txt')
 			.expect('Content-Type', /text\/plain/)
-			.expect(200)
-			.end(function(err, res) {
-				if (err) {
-					throw err;
-				}
-				res.text.should.eql(expectedBody);
-				done();
-			});
+			.expect(expectedBody)
+			.expect(200, done);
 
 	});
 

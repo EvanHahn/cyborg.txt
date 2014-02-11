@@ -16,4 +16,17 @@ describe('url', function() {
 		robots.url(url).should.eql('http://user:pASS@hella.dots.host.bike:8080/robots.txt');
 	});
 
+	it('throws an error for bad URLs', function() {
+		function bad(uri) {
+			return function() {
+				return robots.url(uri);
+			};
+		}
+		bad('example.com').should.Throw(Error);
+		bad('www.example.com').should.Throw(Error);
+		bad('').should.Throw(Error);
+		bad('http').should.Throw(Error);
+		bad('http://').should.Throw(Error);
+	});
+
 });

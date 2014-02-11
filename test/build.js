@@ -18,7 +18,7 @@ describe('build', function() {
 		].join('\n');
 
 		var actual = robots.build({
-			'nsa': robots.ALL,
+			'nsa': ['/'],
 			'*': ['robocop_copyright_info'],
 			'coolbot': [
 				'/secret_codes.txt',

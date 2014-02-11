@@ -1,11 +1,13 @@
 var robots = require('..');
+var connect = require('connect');
+var request = require('supertest');
 require('chai').should();
 
-describe('build', function() {
+describe('Connect-compatible middleware', function() {
 
-	it('builds a robots.txt', function() {
+	it('serves robots.txt', function(done) {
 
-		var expected = [
+		var expectedBody = [
 			'User-agent: nsa',
 			'Disallow: /',
 			'',
@@ -20,7 +22,9 @@ describe('build', function() {
 			'Disallow: /robocop_copyright_info'
 		].join('\n');
 
-		var actual = robots.build({
+		var app = connect();
+
+		app.use(robots.middleware({
 			'nsa': ['/'],
 			'*': ['robocop_copyright_info'],
 			'coolbot': [
@@ -28,19 +32,19 @@ describe('build', function() {
 				'cool_burrito_photo.jpg'
 			],
 			'everythingbot': []
-		});
+		}));
 
-		actual.should.eql(expected);
+		request(app).get('/robots.txt')
+			.expect('Content-Type', /text\/plain/)
+			.expect(200)
+			.end(function(err, res) {
+				if (err) {
+					throw err;
+				}
+				res.text.should.eql(expectedBody);
+				done();
+			});
 
-	});
-
-	it('builds an empty robots.txt', function() {
-		var expected = [
-			'User-agent: *',
-			'Disallow:'
-		].join('\n');
-		robots.build().should.eql(expected);
-		robots.build({}).should.eql(expected);
 	});
 
 });

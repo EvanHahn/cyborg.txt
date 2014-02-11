@@ -9,7 +9,9 @@
   },
   "devDependencies": {
     "mocha": "1.17.x",
-    "chai": "1.9.x"
+    "chai": "1.9.x",
+    "connect": "2.12.x",
+    "supertest": "0.9.x"
   },
   "keywords": [
     "robots",

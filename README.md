@@ -37,25 +37,26 @@ var robots = require('cyborg.txt');
 // Build the body of a robots.txt
 
 robots.build({
-    '*': ['/secrets'], // "*" is always moved to the end
+    '*': ['/secrets'],
     'another-web-crawler': ['cool_folder/hiddenA'], // you can ignore the slash at the start
     'let-everything-through-crawler': [] // allow anything
     'CoolSearchEngine': ['/hidden_picture.jpg', '/something_else.txt'],
 });
 
   /*
+  User-agent: *
+  Disallow: /secrets
+
   User-agent: CoolSearchEngine
   Disallow: /hidden_picture.jpg
-  
+
   User-agent: let-everything-through-crawler
   Disallow:
-  
+
   User-agent: another-web-crawler
   Disallow: /cool_folder/hiddenA
   Disallow: /cool_folder/hidden
-  
-  User-agent: *
-  Disallow: /secrets
+
   */
 
 robots.build(); // allow anything through

@@ -25,5 +25,6 @@
     "search",
     "engine"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "repository": "git://github.com/EvanHahn/cyborg.txt"
 }

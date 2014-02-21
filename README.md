@@ -42,10 +42,10 @@ var robots = require('cyborg.txt');
 // Build the body of a robots.txt
 
 robots.build({
-    '*': ['/secrets'],
-    'another-web-crawler': ['cool_folder/hiddenA'], // you can ignore the slash at the start
-    'let-everything-through-crawler': [] // allow anything
-    'CoolSearchEngine': ['/hidden_picture.jpg', '/something_else.txt'],
+  '*': ['/secrets'],
+  'another-web-crawler': ['cool_folder/hiddenA'], // you can ignore the slash at the start
+  'let-everything-through-crawler': [] // allow anything
+  'CoolSearchEngine': ['/hidden_picture.jpg', '/something_else.txt'],
 });
 
   /*

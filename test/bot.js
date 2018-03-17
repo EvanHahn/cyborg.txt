@@ -30,7 +30,7 @@ describe('Bot', function() {
 
 	it('sees a 404 and allows everything', function(done) {
 		app.get('/robots.txt', function(req, res) {
-			res.send(404);
+			res.sendStatus(404);
 		});
 		var bot = new robots.Bot();
 		var next = after(3, done);

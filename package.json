@@ -2,7 +2,7 @@
   "name": "cyborg.txt",
   "description": "robots.txt utilities",
   "author": "Evan Hahn <me@evanhahn.com>",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "cyborg.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha"

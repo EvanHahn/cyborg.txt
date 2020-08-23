@@ -7,6 +7,9 @@
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha"
   },
+  "engines": {
+    "node": ">=12.0.0"
+  },
   "dependencies": {
     "nop": "^1.0.0",
     "superagent": "^6.0.0"

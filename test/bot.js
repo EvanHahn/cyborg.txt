@@ -1,6 +1,5 @@
 // jshint expr: true
 
-var noop = require("nop");
 var after = require("after");
 var http = require("http");
 var express = require("express");
@@ -57,7 +56,7 @@ describe("Bot", function () {
     bot.allows(host, next);
     bot.allows(host + "something", next);
     bot.allows(host + "somethingelse", next);
-    bot.allows(host + "secrets", noop, next);
+    bot.allows(host + "secrets", function () {}, next);
     bot.disallows(host + "secrets", next);
   });
 

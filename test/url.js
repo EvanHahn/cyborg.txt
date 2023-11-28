@@ -1,3 +1,4 @@
+var { describe, it } = require("node:test");
 var robots = require("..");
 var assert = require("node:assert");
 

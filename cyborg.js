@@ -4,22 +4,20 @@ export function build(options) {
   options = options || {};
 
   const bots = Object.keys(options);
-  bots.sort(function (a) {
-    return a === "*";
-  });
+  bots.sort((a) => a === "*");
 
   if (!bots.length) {
     return build({ "*": [] });
   }
 
   return bots
-    .map(function (bot) {
+    .map((bot) => {
       const firstLine = "User-agent: " + bot + "\n";
       let disallowList;
 
       if (options[bot].length) {
         disallowList = options[bot]
-          .map(function (disallow) {
+          .map((disallow) => {
             let result = "Disallow: ";
             if (disallow[0] !== "/") {
               result += "/";

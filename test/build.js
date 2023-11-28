@@ -3,7 +3,7 @@ import test from "node:test";
 import * as robots from "../cyborg.js";
 import { parse } from "./helpers.js";
 
-test("builds a robots.txt", function () {
+test("builds a robots.txt", () => {
   const actual = robots.build({
     nsa: ["/"],
     "*": ["robocop_copyright_info"],
@@ -38,7 +38,7 @@ test("builds a robots.txt", function () {
   });
 });
 
-test("builds an empty robots.txt", function () {
+test("builds an empty robots.txt", () => {
   const expected = ["User-agent: *", "Disallow:"].join("\n");
   assert.strictEqual(robots.build(), expected);
   assert.strictEqual(robots.build({}), expected);

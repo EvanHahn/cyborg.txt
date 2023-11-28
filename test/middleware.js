@@ -5,7 +5,7 @@ import connect from "connect";
 import request from "supertest";
 import { parse } from "./helpers.js";
 
-test("middleware serves robots.txt", async function () {
+test("middleware serves robots.txt", async () => {
   const app = connect();
   app.use(
     robots.middleware({

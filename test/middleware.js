@@ -2,7 +2,7 @@ var robots = require("..");
 var connect = require("connect");
 var request = require("supertest");
 var { parse } = require("./helpers");
-require("chai").should();
+var assert = require("node:assert");
 
 describe("Connect-compatible middleware", function () {
   it("serves robots.txt", async function () {
@@ -21,22 +21,28 @@ describe("Connect-compatible middleware", function () {
       .expect("Content-Type", /text\/plain/)
       .expect(200);
 
-    text.should.have.string(["User-agent: nsa", "Disallow: /"].join("\n"));
-    text.should.have.string(
-      [
-        "User-agent: coolbot",
-        "Disallow: /secret_codes.txt",
-        "Disallow: /cool_burrito_photo.jpg",
-      ].join("\n")
+    assert.ok(text.includes(["User-agent: nsa", "Disallow: /"].join("\n")));
+    assert.ok(
+      text.includes(
+        [
+          "User-agent: coolbot",
+          "Disallow: /secret_codes.txt",
+          "Disallow: /cool_burrito_photo.jpg",
+        ].join("\n")
+      )
     );
-    text.should.have.string(
-      ["User-agent: everythingbot", "Disallow:"].join("\n")
+    assert.ok(
+      text.includes(
+        ["User-agent: everythingbot", "Disallow:"].join("\n")
+      )
     );
-    text.should.have.string(
-      ["User-agent: *", "Disallow: /robocop_copyright_info"].join("\n")
+    assert.ok(
+      text.includes(
+        ["User-agent: *", "Disallow: /robocop_copyright_info"].join("\n")
+      )
     );
 
-    parse(text).should.eql({
+    assert.deepStrictEqual(parse(text), {
       nsa: ["/"],
       "*": ["/robocop_copyright_info"],
       coolbot: ["/secret_codes.txt", "/cool_burrito_photo.jpg"],

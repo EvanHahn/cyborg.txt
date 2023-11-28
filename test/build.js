@@ -4,7 +4,7 @@ import * as robots from "../cyborg.js";
 import { parse } from "./helpers.js";
 
 test("builds a robots.txt", function () {
-  var actual = robots.build({
+  const actual = robots.build({
     nsa: ["/"],
     "*": ["robocop_copyright_info"],
     coolbot: ["/secret_codes.txt", "cool_burrito_photo.jpg"],
@@ -39,7 +39,7 @@ test("builds a robots.txt", function () {
 });
 
 test("builds an empty robots.txt", function () {
-  var expected = ["User-agent: *", "Disallow:"].join("\n");
+  const expected = ["User-agent: *", "Disallow:"].join("\n");
   assert.strictEqual(robots.build(), expected);
   assert.strictEqual(robots.build({}), expected);
 });

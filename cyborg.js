@@ -3,7 +3,7 @@ export const DEFAULTS = ["User-agent: *", "Disallow:"].join("\n");
 export function build(options) {
   options = options || {};
 
-  var bots = Object.keys(options);
+  const bots = Object.keys(options);
   bots.sort(function (a) {
     return a === "*";
   });
@@ -14,13 +14,13 @@ export function build(options) {
 
   return bots
     .map(function (bot) {
-      var firstLine = "User-agent: " + bot + "\n";
-      var disallowList;
+      const firstLine = "User-agent: " + bot + "\n";
+      let disallowList;
 
       if (options[bot].length) {
         disallowList = options[bot]
           .map(function (disallow) {
-            var result = "Disallow: ";
+            let result = "Disallow: ";
             if (disallow[0] !== "/") {
               result += "/";
             }
@@ -38,7 +38,7 @@ export function build(options) {
 }
 
 export function middleware(options) {
-  var body = build(options);
+  const body = build(options);
 
   return function cyborg(req, res, next) {
     if (req.url == "/robots.txt") {
@@ -51,7 +51,7 @@ export function middleware(options) {
 }
 
 export function url(uri) {
-  var url;
+  let url;
   try {
     url = new URL(uri);
   } catch (err) {

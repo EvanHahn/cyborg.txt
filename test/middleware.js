@@ -6,7 +6,7 @@ import request from "supertest";
 import { parse } from "./helpers.js";
 
 test("middleware serves robots.txt", async function () {
-  var app = connect();
+  const app = connect();
   app.use(
     robots.middleware({
       nsa: ["/"],

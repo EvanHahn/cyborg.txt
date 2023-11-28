@@ -39,7 +39,7 @@ export function middleware(options) {
   const body = build(options);
 
   return function cyborg(req, res, next) {
-    if (req.url == "/robots.txt") {
+    if (req.url === "/robots.txt" && req.method === "GET") {
       res.writeHead(200, { "Content-Type": "text/plain" });
       res.end(body);
     } else {

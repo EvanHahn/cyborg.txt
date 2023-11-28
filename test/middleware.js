@@ -47,3 +47,12 @@ test("middleware serves robots.txt", async () => {
     everythingbot: [],
   });
 });
+
+test("middleware ignores requests to other paths or methods", async () => {
+  const app = connect();
+  app.use(robots.middleware());
+  app.use((_req, res) => res.end("foo"));
+
+  await request(app).get("/bar").expect("foo");
+  await request(app).post("/robots.txt").expect("foo");
+});

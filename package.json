@@ -22,10 +22,7 @@
     "supertest": "^6.3.3"
   },
   "keywords": [
-    "robots",
-    "robots.txt",
-    "search",
-    "engine"
+    "robots.txt"
   ],
   "license": "MIT",
   "repository": "git://github.com/EvanHahn/cyborg.txt"

@@ -1,6 +1,6 @@
-var { describe, it } = require("node:test");
-var robots = require("..");
-var assert = require("node:assert");
+import * as assert from "node:assert";
+import { describe, it } from "node:test";
+import * as robots from "../cyborg.js";
 
 describe("url", function () {
   it("is found for simple domains", function () {

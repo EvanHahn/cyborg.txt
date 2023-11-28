@@ -3,18 +3,21 @@
   "description": "robots.txt utilities",
   "author": "Evan Hahn <me@evanhahn.com>",
   "version": "0.2.0",
+  "type": "module",
   "main": "cyborg.js",
   "scripts": {
     "format": "prettier --write .",
     "test:prettier": "prettier --check .",
+    "test:eslint": "eslint .",
     "test:node": "node --test",
-    "test": "npm run test:prettier && npm run test:node"
+    "test": "npm run test:prettier && npm run test:eslint && npm run test:node"
   },
   "engines": {
     "node": ">=20.0.0"
   },
   "devDependencies": {
     "connect": "^3.7.0",
+    "eslint": "^8.54.0",
     "prettier": "^3.1.0",
     "supertest": "^6.3.3"
   },

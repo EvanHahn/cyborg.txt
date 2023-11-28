@@ -1,5 +1,5 @@
 // This is only used in tests and is not robust.
-exports.parse = (str) => {
+export function parse(str) {
   const lines = str
     .split(/\n/g)
     .map((line) => line.trim())
@@ -25,4 +25,4 @@ exports.parse = (str) => {
   result[currentUserAgent] = currentDisallows;
 
   return result;
-};
+}

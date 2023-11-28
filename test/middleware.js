@@ -1,9 +1,9 @@
-var test = require("node:test");
-var robots = require("..");
-var connect = require("connect");
-var request = require("supertest");
-var { parse } = require("./helpers");
-var assert = require("node:assert");
+import * as assert from "node:assert";
+import test from "node:test";
+import * as robots from "../cyborg.js";
+import connect from "connect";
+import request from "supertest";
+import { parse } from "./helpers.js";
 
 test("middleware serves robots.txt", async function () {
   var app = connect();

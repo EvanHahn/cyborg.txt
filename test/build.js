@@ -1,7 +1,7 @@
-var test = require("node:test");
-var robots = require("..");
-var { parse } = require("./helpers");
-var assert = require("node:assert");
+import * as assert from "node:assert";
+import test from "node:test";
+import * as robots from "../cyborg.js";
+import { parse } from "./helpers.js";
 
 test("builds a robots.txt", function () {
   var actual = robots.build({

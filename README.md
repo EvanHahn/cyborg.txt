@@ -17,20 +17,6 @@ var robots = require('cyborg.txt');
 // Given a URL, where's the corresponding robots.txt file?
 robots.url('http://example.com'); // => http://example.com/robots.txt
 robots.url('http://example.com/some/path/to/file.jpg'); // => http://example.com/robots.txt
-
-// Am I allowed to view this resource?
-// This loads the appropriate robots.txt, unless it's cached.
-// Caching respects the Expires HTTP header.
-var bot = new robots.Bot({
-  agent: 'MyEvilWebcrawler',
-  maxAge: 5000 // cache robots.txt for 5 seconds
-});
-bot.allows('http://example.com', function() {
-  console.log('Example.com is allowed!');
-});
-bot.disallows('http://example.com/not_allowed.jpg', function() {
-  console.log('this is not allowed!');
-});
 ```
 
 For webmasters

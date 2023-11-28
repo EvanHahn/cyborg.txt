@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.3.0 - Unreleased
+## 0.3.0 - 2023-11-28
 
 - **Breaking:** removed `robots.Bot`
 - **Breaking:** Node 20+ is now required

@@ -18,18 +18,16 @@ describe("build", function () {
           "User-agent: coolbot",
           "Disallow: /secret_codes.txt",
           "Disallow: /cool_burrito_photo.jpg",
-        ].join("\n")
-      )
+        ].join("\n"),
+      ),
+    );
+    assert.ok(
+      actual.includes(["User-agent: everythingbot", "Disallow:"].join("\n")),
     );
     assert.ok(
       actual.includes(
-        ["User-agent: everythingbot", "Disallow:"].join("\n")
-      )
-    );
-    assert.ok(
-      actual.includes(
-        ["User-agent: *", "Disallow: /robocop_copyright_info"].join("\n")
-      )
+        ["User-agent: *", "Disallow: /robocop_copyright_info"].join("\n"),
+      ),
     );
 
     assert.deepStrictEqual(parse(actual), {

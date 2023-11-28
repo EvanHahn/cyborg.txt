@@ -13,7 +13,7 @@ describe("Connect-compatible middleware", function () {
         "*": ["robocop_copyright_info"],
         coolbot: ["/secret_codes.txt", "cool_burrito_photo.jpg"],
         everythingbot: [],
-      })
+      }),
     );
 
     const { text } = await request(app)
@@ -28,18 +28,16 @@ describe("Connect-compatible middleware", function () {
           "User-agent: coolbot",
           "Disallow: /secret_codes.txt",
           "Disallow: /cool_burrito_photo.jpg",
-        ].join("\n")
-      )
+        ].join("\n"),
+      ),
+    );
+    assert.ok(
+      text.includes(["User-agent: everythingbot", "Disallow:"].join("\n")),
     );
     assert.ok(
       text.includes(
-        ["User-agent: everythingbot", "Disallow:"].join("\n")
-      )
-    );
-    assert.ok(
-      text.includes(
-        ["User-agent: *", "Disallow: /robocop_copyright_info"].join("\n")
-      )
+        ["User-agent: *", "Disallow: /robocop_copyright_info"].join("\n"),
+      ),
     );
 
     assert.deepStrictEqual(parse(text), {

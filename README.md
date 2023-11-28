@@ -1,26 +1,22 @@
-Cyborg.txt: robots.txt stuff for Node
-=====================================
+# Cyborg.txt: robots.txt stuff for Node
 
 A collection of utilities for all your [robots.txt](http://www.robotstxt.org/) needs, like building a web crawler or your own robots-serving website.
 
-Installation
-------------
+## Installation
 
     npm install cyborg.txt
 
-For webcrawlers
----------------
+## For webcrawlers
 
 ```javascript
-var robots = require('cyborg.txt');
+var robots = require("cyborg.txt");
 
 // Given a URL, where's the corresponding robots.txt file?
-robots.url('http://example.com'); // => http://example.com/robots.txt
-robots.url('http://example.com/some/path/to/file.jpg'); // => http://example.com/robots.txt
+robots.url("http://example.com"); // => http://example.com/robots.txt
+robots.url("http://example.com/some/path/to/file.jpg"); // => http://example.com/robots.txt
 ```
 
-For webmasters
---------------
+## For webmasters
 
 ```javascript
 var robots = require('cyborg.txt');

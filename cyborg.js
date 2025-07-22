@@ -52,7 +52,7 @@ export function url(uri) {
   let url;
   try {
     url = new URL(uri);
-  } catch (err) {
+  } catch {
     throw new Error("Cannot parse URL " + uri);
   }
 
